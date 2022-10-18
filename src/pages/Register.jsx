@@ -23,7 +23,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const [register, { data, error }] = useRegisterMutation();
+  const [register, { isLoading, data, error }] = useRegisterMutation();
 
   const navigate = useNavigate();
 
@@ -72,7 +72,7 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <FormLink to="/login" text="Already have an account?" />
-        <FormButton text="Register" />
+        <FormButton text="Register" disabled={isLoading} />
       </Form>
     </BannerFormLayout>
   );

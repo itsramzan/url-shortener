@@ -15,7 +15,7 @@ const Shorten = () => {
   const [uniqueText, setUniqueText] = useState("");
   const [fullUrl, setFullUrl] = useState("");
 
-  const [shorten, { data, error }] = useShortenMutation();
+  const [shorten, { isLoading, data, error }] = useShortenMutation();
 
   const navigate = useNavigate();
 
@@ -55,7 +55,7 @@ const Shorten = () => {
           onChange={(e) => setFullUrl(e.target.value)}
         />
         <FormLink to="/list" text="See already shorten urls" />
-        <FormButton text="Shorten" />
+        <FormButton text="Shorten" disabled={isLoading} />
       </Form>
     </BannerFormLayout>
   );

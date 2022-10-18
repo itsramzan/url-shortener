@@ -21,7 +21,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const [login, { data, error }] = useLoginMutation();
+  const [login, { isLoading, data, error }] = useLoginMutation();
 
   const navigate = useNavigate();
 
@@ -63,7 +63,7 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <FormLink to="/register" text="Havn't an account yet?" />
-        <FormButton text="Login" />
+        <FormButton text="Login" disabled={isLoading} />
       </Form>
     </BannerFormLayout>
   );
